@@ -37,8 +37,7 @@ class LoginFragment : Fragment() {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
 
-            val user = UserRepository.getUser(email, password)
-            viewModel.searchUser(user)
+            viewModel.searchUser(email, password)
         }
 
         viewModel.uiState.observe(viewLifecycleOwner) {

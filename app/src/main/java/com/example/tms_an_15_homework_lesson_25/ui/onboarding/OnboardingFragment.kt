@@ -25,7 +25,7 @@ class OnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        binding.viewPager.adapter = OnboardingAdapter(parentFragmentManager)
+        binding.viewPager.adapter = OnboardingAdapter(childFragmentManager)
         binding.circleIndicator.setViewPager(binding.viewPager)
 
         binding.skipButton.setOnClickListener {

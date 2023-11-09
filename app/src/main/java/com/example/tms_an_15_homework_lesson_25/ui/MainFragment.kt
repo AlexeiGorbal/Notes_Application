@@ -25,9 +25,8 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         binding.button.setOnClickListener {
-           parentFragmentManager.commit {
+            childFragmentManager.commit {
                 replace(R.id.fragment_container, OnboardingFragment.newInstance())
             }
         }

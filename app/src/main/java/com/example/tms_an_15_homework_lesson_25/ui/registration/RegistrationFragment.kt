@@ -39,7 +39,7 @@ class RegistrationFragment : Fragment() {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
 
-            viewModel.SaveUser(firstName, lastName, email, password)
+            viewModel.saveUser(firstName, lastName, email, password)
         }
 
         viewModel.uiState.observe(viewLifecycleOwner) {

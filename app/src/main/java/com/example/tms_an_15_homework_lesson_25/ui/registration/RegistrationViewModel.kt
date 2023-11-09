@@ -9,7 +9,7 @@ class RegistrationViewModel : ViewModel() {
 
     val uiState = MutableLiveData<UiState>()
 
-    fun SaveUser(firstName: String, lastName: String, email: String, password: String) {
+    fun saveUser(firstName: String, lastName: String, email: String, password: String) {
 
         if (firstName.isBlank()) {
             uiState.value = UiState.WrongFirstName()

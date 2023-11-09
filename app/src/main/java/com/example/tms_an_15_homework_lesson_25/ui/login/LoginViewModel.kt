@@ -13,7 +13,9 @@ class LoginViewModel : ViewModel() {
 
     val uiState = MutableLiveData<UiState>()
 
-    fun searchUser(user: User?) {
+    fun searchUser(email: String, password: String) {
+
+        val user = UserRepository.getUser(email, password)
         if (user == null) {
             uiState.value = UiState.UserNotFound()
         } else {
