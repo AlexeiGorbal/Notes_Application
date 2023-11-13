@@ -21,6 +21,10 @@
     <string name="onboarding_1">Make money while working on awesome projects</string>
     <string name="onboarding_2">Copy Work hard and level up!</string>
     <string name="onboarding_3">Enjoy your progess!</string>
+    <string name="empty_first_name">Empty first name</string>
+    <string name="empty_last_name">Empty last name</string>
+    <string name="empty_email">Empty email</string>
+    <string name="empty_password">Empty password</string>
     <string name="sing_up_question">You don\'t have an account?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -43,6 +43,11 @@ android {
 
 dependencies {
 
+    val room_version = "2.6.0"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation("me.relex:circleindicator:2.1.6")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")

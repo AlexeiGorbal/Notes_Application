@@ -46,16 +46,16 @@ class RegistrationFragment : Fragment() {
 
             when (it) {
                 is RegistrationViewModel.UiState.WrongFirstName ->
-                    binding.firstName.error = EMPTY_FIRST_NAME
+                    binding.firstName.error = resources.getString(R.string.empty_first_name)
 
                 is RegistrationViewModel.UiState.WrongLastName ->
-                    binding.lastName.error = EMPTY_LAST_NAME
+                    binding.lastName.error = resources.getString(R.string.empty_last_name)
 
                 is RegistrationViewModel.UiState.WrongEmail ->
-                    binding.email.error = EMPTY_EMAIL
+                    binding.email.error = resources.getString(R.string.empty_email)
 
                 is RegistrationViewModel.UiState.WrongPassword ->
-                    binding.password.error = EMPTY_PASSWORD
+                    binding.password.error = resources.getString(R.string.empty_password)
 
                 is RegistrationViewModel.UiState.Saved -> {
                     Toast.makeText(context, R.string.user_created, Toast.LENGTH_SHORT).show()
@@ -82,10 +82,5 @@ class RegistrationFragment : Fragment() {
     companion object {
 
         fun newInstance() = RegistrationFragment()
-
-        private const val EMPTY_FIRST_NAME = "Empty first name"
-        private const val EMPTY_LAST_NAME = "Empty last name"
-        private const val EMPTY_EMAIL = "Empty email"
-        private const val EMPTY_PASSWORD = "Empty password"
     }
 }
