@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="margin_start">5dp</dimen>
+    <dimen name="edit_text_width">295dp</dimen>
+    <dimen name="edit_text_height">52dp</dimen>
+    <dimen name="date_width">120dp</dimen>
+    <dimen name="create_text_width">109dp</dimen>
+    <dimen name="create_text_height">36dp</dimen>
+    <dimen name="text_margin_top">120dp</dimen>
+    <dimen name="create_text_margin_start">50dp</dimen>
+    <dimen name="text_size">27sp</dimen>
+    <dimen name="create_edit_text_height">160dp</dimen>
+    <dimen name="button_width">270dp</dimen>
+    <dimen name="button_height">60dp</dimen>
+    <dimen name="button_margin_top">602dp</dimen>
+    <dimen name="button_text_size">19sp</dimen>
+    <dimen name="login_text_width">98dp</dimen>
+    <dimen name="login_text_height">36dp</dimen>
+    <dimen name="elevation">8dp</dimen>
+    <dimen name="main_text_width">244dp</dimen>
+    <dimen name="main_text_height">127dp</dimen>
+    <dimen name="main_text_margin_top">218dp</dimen>
+    <dimen name="main_text_size">85dp</dimen>
+    <dimen name="list_text_wight">172dp</dimen>
+    <dimen name="list_text_height">52dp</dimen>
+    <dimen name="list_margin_start">17dp</dimen>
+    <dimen name="list_margin_top">25dp</dimen>
+    <dimen name="onboarding_margin_top">3dp</dimen>
+    <dimen name="onboarding_text_size">30sp</dimen>
+    <dimen name="circle_indicator_margon_bottom">70sp</dimen>
+    <dimen name="sing_up_text_width">98sp</dimen>
+    <dimen name="sing_up_text_height">36sp</dimen>
+</resources>

@@ -31,9 +31,10 @@ class NoteListFragment : Fragment() {
         binding.recycler.layoutManager = LinearLayoutManager(context)
 
         val adapter = NoteAdapter {
-            val intent = Intent(Intent.ACTION_SEND)
-            intent.type = "text/plain"
-            intent.putExtra(Intent.EXTRA_TEXT, it.title + "\n" + it.text)
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, it.title + "\n" + it.text)
+            }
             val chooser = Intent.createChooser(intent, null)
             try {
                 startActivity(chooser)

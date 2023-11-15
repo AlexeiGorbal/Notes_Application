@@ -48,15 +48,15 @@ class OnboardingStepFragment : Fragment() {
 
     companion object {
 
+        private const val KAY_ONBOARDING = "step"
+        const val ONBOARDING_1 = 1
+        const val ONBOARDING_2 = 2
+        const val ONBOARDING_3 = 3
+
         fun getFragment(step: Int): Fragment {
             return OnboardingStepFragment().apply {
                 arguments = bundleOf(KAY_ONBOARDING to step)
             }
         }
-
-        private const val KAY_ONBOARDING = "step"
-        const val ONBOARDING_1 = 1
-        const val ONBOARDING_2 = 2
-        const val ONBOARDING_3 = 3
     }
 }

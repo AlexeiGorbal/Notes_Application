@@ -10,6 +10,7 @@ import com.example.tms_an_15_homework_lesson_25.R
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentMainBinding
 import com.example.tms_an_15_homework_lesson_25.ui.login.LoginFragment
 import com.example.tms_an_15_homework_lesson_25.ui.onboarding.OnboardingFragment
+import com.example.tms_an_15_homework_lesson_25.ui.registration.RegistrationFragment
 
 class MainFragment : Fragment() {
 
@@ -41,5 +42,10 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+
+        fun newInstance() = MainFragment()
     }
 }
