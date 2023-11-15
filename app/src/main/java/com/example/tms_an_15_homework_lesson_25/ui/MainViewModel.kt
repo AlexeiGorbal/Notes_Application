@@ -20,11 +20,4 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             sharedPreferences.setIsOpen()
         }
     }
-
-    abstract class UiState {
-
-        class MainScreen : UiState()
-
-        class LoginScreen : UiState()
-    }
 }

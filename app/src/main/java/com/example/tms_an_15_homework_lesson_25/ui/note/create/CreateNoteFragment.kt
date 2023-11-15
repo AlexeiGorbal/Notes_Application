@@ -38,13 +38,13 @@ class CreateNoteFragment : Fragment() {
 
         viewModel.uiState.observe(viewLifecycleOwner) {
             when (it) {
-                is CreateNoteViewModel.UiState.WrongTitle ->
+                is UiState.WrongTitle ->
                     binding.title.error = EMPTY_TITLE
 
-                is CreateNoteViewModel.UiState.WrongText ->
+                is UiState.WrongText ->
                     binding.message.error = EMPTY_TEXT
 
-                is CreateNoteViewModel.UiState.Saved -> {
+                is UiState.Saved -> {
                     val bundle = Bundle()
                     bundle.putParcelable(KEY, it.note)
                     setFragmentResult(REQUEST_KEY, bundle)

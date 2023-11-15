@@ -43,9 +43,12 @@ android {
 
 dependencies {
 
+    implementation("androidx.benchmark:benchmark-common:1.2.0")
     val room_version = "2.6.0"
 
-    implementation("androidx.room:room-runtime:$room_version")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.room:room-ktx:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.fragment:fragment-ktx:1.6.2")

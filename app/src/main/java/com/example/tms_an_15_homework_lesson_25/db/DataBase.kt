@@ -11,8 +11,7 @@ object DataBase {
 
     fun createDataBase(context: Context) {
         val dataBase: AppDataBase =
-            Room.databaseBuilder(context, AppDataBase::class.java, CREATE_DATA_BASE)
-                .allowMainThreadQueries().build()
+            Room.databaseBuilder(context, AppDataBase::class.java, CREATE_DATA_BASE).build()
         noteDao = dataBase.getNoteDao()
     }
 }

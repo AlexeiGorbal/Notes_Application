@@ -2,8 +2,10 @@ package com.example.tms_an_15_homework_lesson_25.ui.registration
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.tms_an_15_homework_lesson_25.model.User
 import com.example.tms_an_15_homework_lesson_25.repository.UserRepository
+import kotlinx.coroutines.launch
 
 class RegistrationViewModel : ViewModel() {
 
@@ -30,22 +32,10 @@ class RegistrationViewModel : ViewModel() {
         if (!firstName.isBlank() && !lastName.isBlank()
             && !email.isBlank() && !password.isBlank()
         ) {
-            UserRepository.addUser(User(firstName, lastName, email, password))
-            uiState.value = UiState.Saved()
+            viewModelScope.launch {
+                UserRepository.addUser(User(firstName, lastName, email, password))
+                uiState.value = UiState.Saved()
+            }
         }
-    }
-
-    sealed class UiState {
-
-        class WrongFirstName : UiState()
-
-        class WrongLastName : UiState()
-
-        class WrongEmail : UiState()
-
-        class WrongPassword : UiState()
-
-        class Saved : UiState()
-
     }
 }

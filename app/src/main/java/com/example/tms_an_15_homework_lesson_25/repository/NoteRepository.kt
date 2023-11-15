@@ -3,17 +3,27 @@ package com.example.tms_an_15_homework_lesson_25.repository
 import com.example.tms_an_15_homework_lesson_25.db.DataBase
 import com.example.tms_an_15_homework_lesson_25.db.NoteEntity
 import com.example.tms_an_15_homework_lesson_25.model.Note
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 object NoteRepository {
 
-    fun addNote(note: Note) {
-        val entity = NoteEntity(null, note.title, note.text, note.date)
+    suspend fun addNote(note: Note) {
+        val entity = note.toEntity()
         DataBase.noteDao?.addNote(entity)
     }
 
-    fun getNotes(): List<Note> {
+    suspend fun getNotes(): List<Note> {
         return DataBase.noteDao?.getNotes()?.map {
-            Note(title = it.title, text = it.text, date = it.date)
+           it.toModel()
         } ?: emptyList()
     }
+}
+
+private fun Note.toEntity(): NoteEntity {
+    return NoteEntity(null, title, text, date)
+}
+
+private fun NoteEntity.toModel(): Note {
+    return Note(title = title, text = text, date = date)
 }
