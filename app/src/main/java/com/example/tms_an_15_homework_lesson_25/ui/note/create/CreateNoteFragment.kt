@@ -10,8 +10,10 @@ import androidx.fragment.app.viewModels
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentCreateNoteBinding
 import com.example.tms_an_15_homework_lesson_25.model.Note
 import com.example.tms_an_15_homework_lesson_25.repository.NoteRepository
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
 
+@AndroidEntryPoint
 class CreateNoteFragment : Fragment() {
 
     private var _binding: FragmentCreateNoteBinding? = null

@@ -1,15 +1,16 @@
 package com.example.tms_an_15_homework_lesson_25.ui
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.tms_an_15_homework_lesson_25.repository.SharedPreferences
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class MainViewModel @Inject constructor(sharedPreferences: SharedPreferences) :
+    ViewModel() {
 
     val uiState = MutableLiveData<UiState>()
-
-    private val sharedPreferences = SharedPreferences(application.applicationContext)
 
     init {
 

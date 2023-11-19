@@ -1,22 +1,25 @@
 package com.example.tms_an_15_homework_lesson_25.repository
 
-import com.example.tms_an_15_homework_lesson_25.db.DataBase
+import com.example.tms_an_15_homework_lesson_25.db.NoteDao
 import com.example.tms_an_15_homework_lesson_25.db.NoteEntity
 import com.example.tms_an_15_homework_lesson_25.model.Note
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-object NoteRepository {
+@Singleton
+class NoteRepository @Inject constructor(
+    private var noteDao: NoteDao
+) {
 
     suspend fun addNote(note: Note) {
         val entity = note.toEntity()
-        DataBase.noteDao?.addNote(entity)
+        noteDao.addNote(entity)
     }
 
     suspend fun getNotes(): List<Note> {
-        return DataBase.noteDao?.getNotes()?.map {
-           it.toModel()
-        } ?: emptyList()
+        return noteDao.getNotes().map {
+            it.toModel()
+        }
     }
 }
 
