@@ -45,19 +45,19 @@ class RegistrationFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner) {
 
             when (it) {
-                is RegistrationViewModel.UiState.WrongFirstName ->
+                is UiState.WrongFirstName ->
                     binding.firstName.error = resources.getString(R.string.empty_first_name)
 
-                is RegistrationViewModel.UiState.WrongLastName ->
+                is UiState.WrongLastName ->
                     binding.lastName.error = resources.getString(R.string.empty_last_name)
 
-                is RegistrationViewModel.UiState.WrongEmail ->
+                is UiState.WrongEmail ->
                     binding.email.error = resources.getString(R.string.empty_email)
 
-                is RegistrationViewModel.UiState.WrongPassword ->
+                is UiState.WrongPassword ->
                     binding.password.error = resources.getString(R.string.empty_password)
 
-                is RegistrationViewModel.UiState.Saved -> {
+                is UiState.Saved -> {
                     Toast.makeText(context, R.string.user_created, Toast.LENGTH_SHORT).show()
 
                     parentFragmentManager.commit {

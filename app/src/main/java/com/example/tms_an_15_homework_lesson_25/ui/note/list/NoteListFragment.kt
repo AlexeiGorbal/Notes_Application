@@ -10,8 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentNoteListBinding
-import com.example.tms_an_15_homework_lesson_25.repository.NoteRepository
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NoteListFragment : Fragment() {
 
     private var _binding: FragmentNoteListBinding? = null

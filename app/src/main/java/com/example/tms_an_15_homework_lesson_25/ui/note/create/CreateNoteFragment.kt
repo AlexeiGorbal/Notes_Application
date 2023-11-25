@@ -10,8 +10,10 @@ import androidx.fragment.app.viewModels
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentCreateNoteBinding
 import com.example.tms_an_15_homework_lesson_25.model.Note
 import com.example.tms_an_15_homework_lesson_25.repository.NoteRepository
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
 
+@AndroidEntryPoint
 class CreateNoteFragment : Fragment() {
 
     private var _binding: FragmentCreateNoteBinding? = null
@@ -38,13 +40,13 @@ class CreateNoteFragment : Fragment() {
 
         viewModel.uiState.observe(viewLifecycleOwner) {
             when (it) {
-                is CreateNoteViewModel.UiState.WrongTitle ->
+                is UiState.WrongTitle ->
                     binding.title.error = EMPTY_TITLE
 
-                is CreateNoteViewModel.UiState.WrongText ->
+                is UiState.WrongText ->
                     binding.message.error = EMPTY_TEXT
 
-                is CreateNoteViewModel.UiState.Saved -> {
+                is UiState.Saved -> {
                     val bundle = Bundle()
                     bundle.putParcelable(KEY, it.note)
                     setFragmentResult(REQUEST_KEY, bundle)

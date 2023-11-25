@@ -9,8 +9,8 @@ import androidx.room.Query
 interface NoteDao {
 
     @Insert
-    fun addNote(note: NoteEntity)
+    suspend fun addNote(note: NoteEntity)
 
     @Query("SELECT * FROM Note")
-    fun getNotes(): List<NoteEntity>
+    suspend fun getNotes(): List<NoteEntity>
 }

@@ -43,10 +43,10 @@ class LoginFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner) {
 
             when (it) {
-                is LoginViewModel.UiState.UserNotFound ->
+                is UiState.UserNotFound ->
                     Toast.makeText(context, R.string.user_not_found, Toast.LENGTH_SHORT).show()
 
-                is LoginViewModel.UiState.UserFound -> {
+                is UiState.UserFound -> {
                     parentFragmentManager.commit {
                         replace(R.id.fragment_container, BottomNavigationFragment.newInstance())
                     }
