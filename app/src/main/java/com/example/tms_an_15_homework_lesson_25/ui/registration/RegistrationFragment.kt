@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.tms_an_15_homework_lesson_25.R
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentRegistrationBinding
 import com.example.tms_an_15_homework_lesson_25.model.User
@@ -59,18 +60,19 @@ class RegistrationFragment : Fragment() {
 
                 is UiState.Saved -> {
                     Toast.makeText(context, R.string.user_created, Toast.LENGTH_SHORT).show()
-
-                    parentFragmentManager.commit {
-                        replace(R.id.fragment_container, LoginFragment.newInstance())
-                    }
+                    findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
+//                    parentFragmentManager.commit {
+//                        replace(R.id.fragment_container, LoginFragment.newInstance())
+//                    }
                 }
             }
         }
 
         binding.loginButton.setOnClickListener {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, LoginFragment.newInstance())
-            }
+            findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
+//            parentFragmentManager.commit {
+//                replace(R.id.fragment_container, LoginFragment.newInstance())
+//            }
         }
     }
 

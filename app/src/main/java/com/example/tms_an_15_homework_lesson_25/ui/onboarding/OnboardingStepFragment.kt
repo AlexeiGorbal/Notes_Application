@@ -45,7 +45,6 @@ class OnboardingStepFragment : Fragment() {
         }
     }
 
-
     companion object {
 
         private const val KAY_ONBOARDING = "step"

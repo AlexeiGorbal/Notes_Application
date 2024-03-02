@@ -1,11 +1,11 @@
 package com.example.tms_an_15_homework_lesson_25.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
+import androidx.navigation.fragment.NavHostFragment
 import com.example.tms_an_15_homework_lesson_25.R
-import com.example.tms_an_15_homework_lesson_25.ui.login.LoginFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,16 +15,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         viewModel.uiState.observe(this) {
-            if (it is com.example.tms_an_15_homework_lesson_25.ui.UiState.MainScreen) {
+            if (it is UiState.MainScreen) {
                 supportFragmentManager.commit {
-                    replace(R.id.fragment_container, MainFragment.newInstance())
+                    replace(android.R.id.content, NavHostFragment.create(R.navigation.graph_main))
                 }
             } else {
                 supportFragmentManager.commit {
-                    replace(R.id.fragment_container, LoginFragment.newInstance())
+                    replace(android.R.id.content, NavHostFragment.create(R.navigation.graph_login))
                 }
             }
         }

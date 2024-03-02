@@ -10,6 +10,7 @@ import com.example.tms_an_15_homework_lesson_25.model.Note
 import java.text.SimpleDateFormat
 
 class NoteViewHolder(view: View) : ViewHolder(view) {
+
     private val binding: ItemNoteBinding = ItemNoteBinding.bind(view)
 
     private val formatter = SimpleDateFormat("hh:mm MM.dd.yyyy")
