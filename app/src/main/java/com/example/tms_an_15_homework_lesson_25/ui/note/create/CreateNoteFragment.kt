@@ -1,17 +1,14 @@
 package com.example.tms_an_15_homework_lesson_25.ui.note.create
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentCreateNoteBinding
-import com.example.tms_an_15_homework_lesson_25.model.Note
-import com.example.tms_an_15_homework_lesson_25.repository.NoteRepository
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Date
 
 @AndroidEntryPoint
 class CreateNoteFragment : Fragment() {
@@ -47,9 +44,7 @@ class CreateNoteFragment : Fragment() {
                     binding.message.error = EMPTY_TEXT
 
                 is UiState.Saved -> {
-                    val bundle = Bundle()
-                    bundle.putParcelable(KEY, it.note)
-                    setFragmentResult(REQUEST_KEY, bundle)
+                    findNavController().navigateUp()
                 }
             }
         }
@@ -61,12 +56,7 @@ class CreateNoteFragment : Fragment() {
     }
 
     companion object {
-
-        fun newInstance() = CreateNoteFragment()
-
         private const val EMPTY_TITLE = "Empty title"
         private const val EMPTY_TEXT = "Empty message"
-        const val REQUEST_KEY = "result"
-        private const val KEY = "note"
     }
 }

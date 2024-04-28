@@ -1,14 +1,13 @@
 package com.example.tms_an_15_homework_lesson_25.ui.onboarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.tms_an_15_homework_lesson_25.R
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentOnboardingBinding
-import com.example.tms_an_15_homework_lesson_25.ui.login.LoginFragment
 
 class OnboardingFragment : Fragment() {
 
@@ -29,14 +28,7 @@ class OnboardingFragment : Fragment() {
         binding.circleIndicator.setViewPager(binding.viewPager)
 
         binding.skipButton.setOnClickListener {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, LoginFragment.newInstance())
-            }
+            findNavController().navigate(R.id.action_onboardingFragment_to_graph_login)
         }
-    }
-
-    companion object {
-
-        fun newInstance() = OnboardingFragment()
     }
 }

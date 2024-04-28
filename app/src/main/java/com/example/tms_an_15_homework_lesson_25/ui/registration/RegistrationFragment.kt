@@ -1,18 +1,15 @@
 package com.example.tms_an_15_homework_lesson_25.ui.registration
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.commit
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.tms_an_15_homework_lesson_25.R
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentRegistrationBinding
-import com.example.tms_an_15_homework_lesson_25.model.User
-import com.example.tms_an_15_homework_lesson_25.repository.UserRepository
-import com.example.tms_an_15_homework_lesson_25.ui.login.LoginFragment
 
 class RegistrationFragment : Fragment() {
 
@@ -59,28 +56,18 @@ class RegistrationFragment : Fragment() {
 
                 is UiState.Saved -> {
                     Toast.makeText(context, R.string.user_created, Toast.LENGTH_SHORT).show()
-
-                    parentFragmentManager.commit {
-                        replace(R.id.fragment_container, LoginFragment.newInstance())
-                    }
+                    findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
                 }
             }
         }
 
         binding.loginButton.setOnClickListener {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, LoginFragment.newInstance())
-            }
+            findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-
-        fun newInstance() = RegistrationFragment()
     }
 }

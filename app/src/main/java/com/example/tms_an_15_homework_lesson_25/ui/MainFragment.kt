@@ -1,16 +1,13 @@
 package com.example.tms_an_15_homework_lesson_25.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.tms_an_15_homework_lesson_25.R
 import com.example.tms_an_15_homework_lesson_25.databinding.FragmentMainBinding
-import com.example.tms_an_15_homework_lesson_25.ui.login.LoginFragment
-import com.example.tms_an_15_homework_lesson_25.ui.onboarding.OnboardingFragment
-import com.example.tms_an_15_homework_lesson_25.ui.registration.RegistrationFragment
 
 class MainFragment : Fragment() {
 
@@ -27,25 +24,16 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.button.setOnClickListener {
-            childFragmentManager.commit {
-                replace(R.id.fragment_container, OnboardingFragment.newInstance())
-            }
+            findNavController().navigate(R.id.action_mainFragment_to_onboardingFragment)
         }
 
         binding.loginButton.setOnClickListener {
-            childFragmentManager.commit {
-                replace(R.id.fragment_container, LoginFragment.newInstance())
-            }
+            findNavController().navigate(R.id.action_mainFragment_to_graph_login)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-
-        fun newInstance() = MainFragment()
     }
 }

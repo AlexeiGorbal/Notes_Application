@@ -1,5 +1,7 @@
 package com.example.tms_an_15_homework_lesson_25.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
 import com.example.tms_an_15_homework_lesson_25.db.NoteDao
 import com.example.tms_an_15_homework_lesson_25.db.NoteEntity
 import com.example.tms_an_15_homework_lesson_25.model.Note
@@ -16,10 +18,14 @@ class NoteRepository @Inject constructor(
         noteDao.addNote(entity)
     }
 
-    suspend fun getNotes(): List<Note> {
-        return noteDao.getNotes().map {
-            it.toModel()
-        }
+    fun getNotes(): LiveData<List<Note>> {
+        return noteDao.getNotes()
+            .map { notes ->
+                notes.asSequence()
+                    .map { it.toModel() }
+                    .sortedByDescending { it.date }
+                    .toList()
+            }
     }
 }
 
